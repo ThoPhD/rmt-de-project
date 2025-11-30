@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: email
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+
+  - name: stg_rates
+    columns:
+      - name: rate_id
+        tests:
+          - unique
+          - not_null
+      - name: currency_pair
+        tests:
+          - not_null

@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_transactions
+    columns:
+      - name: tx_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+
+  - name: stg_rates
+    columns:
+      - name: close_time
+        tests:
+          - not_null

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cd76c60f-5aba-49ea-ad27-09831f28036f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/Dag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ERD.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="365ynCBtOlAKFESftddg8AXXvJ4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/thopd/Desktop/WorkSpaces/rmt-de-project/rtm_dbt_bigquery/models/intermediate",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rtm_dbt_bigquery/models/intermediate" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/rtm_dbt_bigquery/models/marts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/rtm_dbt_bigquery/models/marts/metrics" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-1f77c24022e5-d902c0275401-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-252.26830.99" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd76c60f-5aba-49ea-ad27-09831f28036f" name="Changes" comment="" />
+      <created>1764310892201</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764310892201</updated>
+    </task>
+    <servers />
+  </component>
+</project>
