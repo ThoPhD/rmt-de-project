@@ -1,3 +1,12 @@
+{{ config(
+    materialized='table',
+    partition_by={
+        "field": "created_at",
+        "data_type": "timestamp"
+    },
+    cluster_by=["user_id"]
+) }}
+
 with transactions as (
     select * from {{ ref('stg_transactions') }}
 ),
@@ -30,7 +39,7 @@ joined as (
     select
         tx.tx_id,
         tx.user_id,
-        tx.created_at as transaction_at,
+        tx.created_at,
         tx.status,
         tx.source_currency,
         tx.source_amount,

@@ -1,3 +1,12 @@
+{{ config(
+    materialized='table',
+    partition_by={
+        "field": "created_at",
+        "data_type": "timestamp"
+    },
+    cluster_by=["kyc_level_at_transaction", "user_id"]
+) }}
+
 SELECT
     kyc_level_at_transaction,
     COUNT(tx_id) AS completed_transaction_count,
