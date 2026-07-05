@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: kyc_level
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4]
+
+  - name: stg_transactions
+    columns:
+      - name: tx_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['completed', 'cancelled', 'cancelled_by_system']
+
+  - name: stg_rates
+    columns:
+      - name: close_time
+        tests:
+          - not_null
+      - name: symbol
+        tests:
+          - not_null

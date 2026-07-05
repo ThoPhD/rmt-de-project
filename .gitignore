@@ -1,6 +1,6 @@
 __pycache__/
 *.py[cod]
-venv/
+.venv/
 .env/
 data/
 *.log
@@ -11,3 +11,4 @@ compiled/
 .DS_Store
 Thumbs.db
 .idea/*
+.user.yml
