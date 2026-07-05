@@ -11,7 +11,7 @@ rtm-de-project/
 ├── ingestion/
 │   ├── binance_rate_extractor.py
 │   └── requirements.txt
-├── rmt_dbt_bigquery/
+├── rmt_dbt_clickhouse/
 │   ├── models/
 │   │   ├── staging/
 │   │   ├── intermediate/
@@ -22,7 +22,7 @@ rtm-de-project/
 │   └── dbt_project.yml
 ├── airflow/
 │   └── dags/
-└── ARCHITECTURE.md
+└── architecture.md
 ```
 
 ---
@@ -146,17 +146,31 @@ One Big Table phục vụ BI:
 # 4. Bài 3 – Kiến trúc & Lưu trữ
 
 ## **4.1 Lựa chọn DWH**
-Đề xuất: **BigQuery**
-- Không cần quản lý Infrastructure.
-- Tối ưu tốt cho large-scale analytical workload
-- Cost-effective cho batch processing
-- Tích hợp với dbt
+Đề xuất: **ClickHouse**
+- Tối ưu cực tốt cho real-time analytical workload (OLAP) và dữ liệu dạng cột (column-oriented).
+- Hiệu năng truy vấn rất cao với lượng tài nguyên phần cứng thấp, độ trễ cực thấp (sub-second queries).
+- Cho phép chạy open-source và self-hosted dễ dàng (local development thân thiện qua Docker).
+- Chi phí vận hành thấp so với các cloud DWH khi tự quản lý hạ tầng.
+- Tích hợp rất tốt với dbt qua adapter `dbt-clickhouse`.
 
-Alternatives: Snowflake, Databricks, Redshift Serverless.
+Alternatives: BigQuery, Snowflake, Databricks, Redshift.
 
 ---
 
-# 4.2 dbt Materialization Strategy
+## **4.2 Cấu hình Kết nối ClickHouse (profiles.yml)**
+Cấu hình kết nối dbt với ClickHouse được thiết lập trong `profiles.yml` như sau:
+- **Profile name**: `rtm_dbt_clickhouse`
+- **Target**: `dev`
+- **Host**: `localhost`
+- **Port**: `8123`
+- **Username**: `default`
+- **Password**: `default_password`
+- **Database**: `analytics`
+- **Type**: `clickhouse`
+
+---
+
+# 4.3 dbt Materialization Strategy
 | Layer | Materialization | Lý do                         |
 |-------|----------------|-------------------------------|
 | Staging (Bronze) | view | Rẻ, nhẹ, không cần lưu table  |
@@ -166,7 +180,7 @@ Alternatives: Snowflake, Databricks, Redshift Serverless.
 
 ---
 
-# 4.3 Orchestration
+# 4.4 Orchestration
 **Airflow** hoặc **dbt Cloud** cho DBT.
 
 ## **Pipeline DAG**
