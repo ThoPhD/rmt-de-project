@@ -8,8 +8,14 @@ renamed as (
         CAST(user_id AS Int32) as user_id,
         source_currency,
         destination_currency,
-        CAST(source_amount AS Float64) as source_amount,
-        CAST(destination_amount AS Float64) as destination_amount,
+        case 
+            when CAST(source_amount AS String) in ('null', 'NaN', 'nan', '') then null 
+            else CAST(source_amount AS Float64) 
+        end as source_amount,
+        case 
+            when CAST(destination_amount AS String) in ('null', 'NaN', 'nan', '') then null 
+            else CAST(destination_amount AS Float64) 
+        end as destination_amount,
         status,
         CAST(created_at AS DateTime) as created_at
     from source
